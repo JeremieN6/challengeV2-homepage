@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/poppins');
+        body{
+            color: #111729;
+        }
+        .nav{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+        }
+        #containerNavMenu{
+            display: none;
+        }
+        #closeIcon{
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+        .containerNavMenu{
+            background-color: #fff;
+            position: absolute;
+            right: 0;
+            height: 53em;
+            width: 55%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .menuUl{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            list-style-type: none;
+            margin: 5em;
+            color: #909193;
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .active{
+            font-weight: 700;
+            color: #111729;
+            margin: 0 30px 30px 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+        }
+        .menuLi{
+            margin: 0 30px 30px 0;
+        }
+        #containerSwitchTheme{
+            display: none;
+            position: absolute;
+            right: 0;
+            margin: 25em 5em;
+        }
+        .switchTheme{
+            width: 45px;
+            height: 20px;
+            border: 1px solid #111729;
+            background-color: #111729;
+            border-radius: 25px;
+            padding: 2px;
+
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        .containerMoon, .containerSun{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .isActive{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        .contentSun,.contentMoon{
+            width: 70%;
+            cursor: pointer;
+        }
+        #moonDark{
+            display: none;
+        }
+        .contentLogo{
+            width: 85%;
+        }
+        .header{
+            display: flex;
+            justify-content: center;
+            flex-direction: column-reverse;
+            padding: 1em;
+        }
+        .containerText{
+            width: inherit;
+        }
+        .containerImageHeader{
+            padding: 1em;
+            width: inherit;
+        }
+        .contentImageHeader{
+            width: 100%;
+        }
+        .containerSubTitle p{
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        h1{
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 700; 
+        }
+        .containerTexteTitle p{
+            font-size: 14px;
+            color: #909193;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+        .containerCTA,.containerSmallInfo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 25px 0;
+            cursor: pointer;
+        }
+        .mainCTA{
+            background-color: #2A4DD0;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-right: 15px;
+        }
+        .subCTA{
+            color: #2A4DD0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-size: 13px;
+        }
+        .smallInfo1,.smallInfo2{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 15px;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            color: #909193;
+        }
+        @media (min-width:769px){
+        .nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 15px 50px;
+        }
+        .containerNavIcon{
+            display: none;
+        }
+        .containerSwitchTheme,
+        #containerSwitchTheme{
+            display: block;
+            position: inherit;
+            margin: 0;
+        }
+        .containerNavMenu {
+            background-color: inherit;
+            position: inherit;
+            height: auto;
+            width: auto;
+            display: inline-block;
+        }
+        .switchTheme{
+            width: 45px;
+            height: 20px;
+            border: 1px solid #111729;
+            background-color: #111729;
+            border-radius: 25px;
+            padding: 2px;
+
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        .containerMoon, .containerSun{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .isActive{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        .contentSun,.contentMoon{
+            width: 70%;
+            cursor: pointer;
+        }
+        #moonDark{
+            display: none;
+        }
+        #containerNavMenu{
+            display: block;
+        }
+        .menuUl{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            list-style-type: none;
+            margin: 0;
+        }
+        .menuLi{
+            margin: 0 30px 0 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .active{
+            font-weight: 700;
+        }
+        .contentLogo{
+            width: 85%;
+        }
+        .header{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            padding: 3em;
+        }
+        .containerImageHeader{
+            padding: 1em;
+            width: 100%;
+        }
+        .contentImageHeader{
+            width: 100%;
+        }
+        .containerText{
+            width: 65%;
+        }
+        .containerSubTitle p{
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        h1{
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.75rem;
+            font-weight: 700; 
+        }
+        .containerTexteTitle p{
+            font-size: 14px;
+            color: #909193;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+        .containerCTA,.containerSmallInfo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 25px 0;
+        }
+        .mainCTA{
+            background-color: #2A4DD0;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-right: 15px;
+        }
+        .subCTA{
+            color: #2A4DD0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-size: 13px;
+        }
+        .smallInfo1,.smallInfo2{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 15px;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            color: #909193;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="mainPage">
+        <div class="nav">
+            <div class="containerLogo">
+                <img src="./assets/images/alarado-icon-homepage.svg" alt="Logo" class="contentLogo" id="contentLogo">
+            </div>
+            <div class="containerNavIcon">
+                <i class="fa fa-bars" id="fa-bars" aria-hidden="true" onclick="openMenu();"></i>
+                <i class="fa fa-close" id="closeIcon" aria-hidden="true" onclick="closeMenu();"></i>
+            </div>
+            <div class="containerNavMenu" id="containerNavMenu">
+                <ul class="menuUl" id="menuUl">
+                    <li class="menuLi active" id="active">About us</li>
+                    <li class="menuLi">Product</li>
+                    <li class="menuLi">Ressource</li>
+                    <li class="menuLi">Contact</li>
+                </ul>
+            </div>
+            <div class="containerSwitchTheme" id="containerSwitchTheme">
+                <div class="switchTheme" id="switchTheme">
+                    <div class="containerMoon" id="containerMoon" onclick="switchDark();">
+                        <img src="./assets/images/Moon_fill_light.svg" alt="Moon Fill Light" class="contentMoon moonLight" id="moonLight">
+                        <img src="./assets/images/Moon_fill.svg" alt="Moon Fill Light" class="contentMoon moonDark" id="moonDark">
+                    </div>
+                    <div class="containerSun isActive" id="containerSun" onclick="switchLight();">
+                        <img src="./assets/images/Sun_fill.svg" alt="Sun Fill Light" class="contentSun" id="contentSun">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="containerText">
+                <div class="containerSubTitle">
+                    <p>😎  Simple way to communicate</p>
+                </div>
+                <div class="containerTitle">
+                    <h1>Actions for Accessibility in Design</h1>
+                </div>
+                <div class="containerTexteTitle">
+                    <p>The fastest way to build and deploy websites with resusable components.</p>
+                </div>
+                <div class="containerCTA">
+                    <div class="mainCTA">Get Started</div>
+                    <div class="subCTA">Get live demo</div>
+                </div>
+                <div class="containerSmallInfo">
+                    <div class="smallInfo1">
+                        <img src="./assets/images/Done_ring_round_fill.svg" alt="Picto Check" class="contentPicto">
+                        <p>No credit card required</p>
+                    </div>
+                    <div class="smallInfo2">
+                        <img src="./assets/images/Done_ring_round_fill.svg" alt="Picto Check" class="contentPicto">
+                        <p>No software to install</p>
+                    </div>
+                </div>
+            </div>
+            <div class="containerImageHeader">
+                <img src="./assets/images/hero-image-simple-homepage.png" alt="Image Header" class="contentImageHeader">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function openMenu(){
+            var containerNavMenu = document.getElementById("containerNavMenu");
+            var iconMenu = document.getElementById("fa-bars");
+            var close = document.getElementById("closeIcon");
+            var containerSwitchTheme = document.getElementById("containerSwitchTheme");
+
+            containerNavMenu.style.display = "flex";
+            iconMenu.style.display = "none";
+            close.style.display = "block";
+            close.style.marginLeft = "-1em";
+            containerSwitchTheme.style.display = "block";
+        }
+        function closeMenu(){
+            var containerNavMenu = document.getElementById("containerNavMenu");
+            var iconMenu = document.getElementById("fa-bars");
+            var close = document.getElementById("closeIcon");
+            var containerSwitchTheme = document.getElementById("containerSwitchTheme");
+
+            containerNavMenu.style.display = "none";
+            iconMenu.style.display = "block";
+            close.style.display = "none";
+            containerSwitchTheme.style.display = "none";
+        }
+        function switchDark(){
+            var moonDark = document.getElementById("moonDark");
+            var moonLight = document.getElementById("moonLight");
+            var containerMoon = document.getElementById("containerMoon");
+            var containerSun = document.getElementById("containerSun");
+            var contentSun = document.getElementById("contentSun");
+            var switchTheme = document.getElementById("switchTheme");
+            var contentLogo = document.getElementById("contentLogo");
+            var containerNavMenu = document.getElementById("containerNavMenu");
+            var menuUl = document.getElementById("menuUl");
+            var active = document.getElementById("active");
+
+            containerMoon.classList.add('isActive');
+            moonLight.style.display = "none";
+            moonDark.style.display = "block";
+            switchTheme.style.cssText = "background-color: #223344; border: 1px solid #223344";
+
+            containerSun.classList.remove('isActive');
+            contentSun.style.filter = "invert(99%) sepia(1%) saturate(2%) hue-rotate(259deg) brightness(109%) contrast(100%)"; //white
+            contentLogo.style.filter = "invert(99%) sepia(1%) saturate(2%) hue-rotate(259deg) brightness(109%) contrast(100%)"; //white
+
+            //change body color
+            document.body.style.backgroundColor = "#111729";
+            document.body.style.color = "#FFF";
+            // document.li.style.color = "#FFF";
+
+
+            containerNavMenu.style.backgroundColor = "#111729";
+            menuUl.style.color = "#FFF";
+            menuUl.style.fontWeight = "400";
+            active.style.color = "#FFF";
+        }
+        function switchLight(){
+            var moonDark = document.getElementById("moonDark");
+            var moonLight = document.getElementById("moonLight");
+            var containerMoon = document.getElementById("containerMoon");
+            var containerSun = document.getElementById("containerSun");
+            var contentSun = document.getElementById("contentSun");
+            var contentLogo = document.getElementById("contentLogo");
+            var switchTheme = document.getElementById("switchTheme");
+            var containerNavMenu = document.getElementById("containerNavMenu");
+            var menuUl = document.getElementById("menuUl");
+
+            containerMoon.classList.remove('isActive');
+            moonLight.style.display = "block";
+            moonDark.style.display = "none";
+            switchTheme.style.cssText = "background-color: #111729; border: 1px solid #111729";
+
+            containerSun.classList.add('isActive');
+            contentSun.style.filter = "none";
+            contentLogo.style.filter = "none";
+
+            //change body color
+            document.body.style.backgroundColor = "#FFF";
+            document.body.style.color = "#111729";
+            // document.li.style.color = "#223344";
+
+            containerNavMenu.style.backgroundColor = "#fff";
+            menuUl.style.color = "#909193";
+            menuUl.style.fontWeight = "600";
+            active.style.color = "#111729";
+            active.style.fontWeight = "700";
+
+        }
+    </script>
+</body>
+</html>
