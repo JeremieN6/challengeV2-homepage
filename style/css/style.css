@@ -248,13 +248,13 @@ h1{
 }
 .containerImageHeader{
     padding: 1em;
-    width: 100%;
+    width: 60%;
 }
 .contentImageHeader{
-    width: 90%;
+    width: 100%;
 }
 .containerText{
-    width: 65%;
+    width: 80%;
 }
 .containerSubTitle p{
     text-transform: uppercase;
