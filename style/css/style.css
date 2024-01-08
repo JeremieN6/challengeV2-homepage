@@ -248,7 +248,7 @@ h1{
 }
 .containerImageHeader{
     padding: 1em;
-    width: 60%;
+    width: 67%;
 }
 .contentImageHeader{
     width: 100%;
@@ -271,7 +271,7 @@ h1{
     font-size: 18px;
     color: #909193;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
 }
 .containerCTA,.containerSmallInfo{
     display: flex;
@@ -307,6 +307,5 @@ h1{
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     color: #909193;
-    font-weight: bold;
 }
 }
