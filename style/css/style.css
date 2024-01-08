@@ -166,7 +166,7 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 15px 50px;
+    padding: 20px 50px;
 }
 .containerNavIcon{
     display: none;
@@ -259,7 +259,7 @@ h1{
 .containerSubTitle p{
     text-transform: uppercase;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
 }
 h1{
@@ -307,5 +307,6 @@ h1{
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     color: #909193;
+    font-weight: bold;
 }
 }
