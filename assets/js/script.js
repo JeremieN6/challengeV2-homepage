@@ -45,8 +45,6 @@ function switchDark(){
     //change body color
     document.body.style.backgroundColor = "#111729";
     document.body.style.color = "#FFF";
-    // document.li.style.color = "#FFF";
-
 
     containerNavMenu.style.backgroundColor = "#111729";
     menuUl.style.color = "#FFF";
@@ -76,9 +74,8 @@ function switchLight(){
     //change body color
     document.body.style.backgroundColor = "#F2F9FE";
     document.body.style.color = "#111729";
-    // document.li.style.color = "#223344";
 
-    containerNavMenu.style.backgroundColor = "#fff";
+    containerNavMenu.style.backgroundColor = "#F2F9FE";
     menuUl.style.color = "#909193";
     menuUl.style.fontWeight = "600";
     active.style.color = "#111729";
