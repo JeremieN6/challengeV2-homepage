@@ -74,7 +74,7 @@ function switchLight(){
     contentLogo.style.filter = "none";
 
     //change body color
-    document.body.style.backgroundColor = "#FFF";
+    document.body.style.backgroundColor = "#F2F9FE";
     document.body.style.color = "#111729";
     // document.li.style.color = "#223344";
 
